@@ -1,10 +1,22 @@
 # PartyGames
 
+### Angular Setup
+
+I recommend using [Visual Studio Code](https://code.visualstudio.com/) with the following extensions installed:
+⋅⋅* Angular 5 Snippets
+⋅⋅* Angular Language Service
+⋅⋅* TSLint or ESLint
+⋅⋅* npm
+
+Download [Node](https://nodejs.org/en/) if you don't have it
+
+Run `npm install -g typescript`
+Run `npm install -g @angular/cli`
+Clone this repo
+Run `ng serve` for dev server and navigate to `http://localhost:4200/`
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.6.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 

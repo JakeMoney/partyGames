@@ -3,10 +3,10 @@
 ### Angular Setup
 
 I recommend using [Visual Studio Code](https://code.visualstudio.com/) with the following extensions installed:
-⋅⋅* Angular 5 Snippets
-⋅⋅* Angular Language Service
-⋅⋅* TSLint or ESLint
-⋅⋅* npm
+* Angular 5 Snippets
+* Angular Language Service
+* TSLint or ESLint
+* npm
 
 Download [Node](https://nodejs.org/en/) if you don't have it
 

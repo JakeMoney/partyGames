@@ -10,9 +10,16 @@ I recommend using [Visual Studio Code](https://code.visualstudio.com/) with the 
 
 Download [Node](https://nodejs.org/en/) if you don't have it
 
+
 Run `npm install -g typescript`
+
+
 Run `npm install -g @angular/cli`
+
+
 Clone this repo
+
+
 Run `ng serve` for dev server and navigate to `http://localhost:4200/`
 
 

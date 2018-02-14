@@ -7,12 +7,14 @@ import { MaterialModule } from './material.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { CreateRoomComponent } from './create-room/create-room.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    CreateRoomComponent
   ],
   imports: [
     BrowserModule,

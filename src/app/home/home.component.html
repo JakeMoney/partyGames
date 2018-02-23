@@ -5,8 +5,8 @@
   <mat-card-content>Some description about Fishbowl here...</mat-card-content>
   <mat-divider></mat-divider>
   <mat-card-actions>
-    <button mat-raised-button color="primary">Create</button>
-    <button mat-raised-button color="basic">Join</button>
+    <button mat-raised-button color="primary" (click)="createRoom('Fishbowl')">Create</button>
+    <button mat-raised-button color="basic" (click)="joinRoom('Fishbowl')">Join</button>
   </mat-card-actions>
 </mat-card>
 

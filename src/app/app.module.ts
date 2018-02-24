@@ -13,7 +13,7 @@ import { CreateRoomComponent } from './create-room/create-room.component';
 import { Api } from './api';
 import { WaitingRoomComponent } from './waiting-room/waiting-room.component';
 import { CreateRoomDialogComponent } from './dialogs/create-room-dialog/create-room-dialog.component';
-import { JoinRoomDialogComponent } from './join-room-dialog/join-room-dialog.component';
+import { JoinRoomDialogComponent } from './dialogs/join-room-dialog/join-room-dialog.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +34,6 @@ import { JoinRoomDialogComponent } from './join-room-dialog/join-room-dialog.com
   ],
   providers: [Api],
   bootstrap: [AppComponent],
-  entryComponents: [CreateRoomDialogComponent]
+  entryComponents: [CreateRoomDialogComponent, JoinRoomDialogComponent]
 })
 export class AppModule { }

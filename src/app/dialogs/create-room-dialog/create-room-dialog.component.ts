@@ -9,7 +9,6 @@ import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms'
 })
 export class CreateRoomDialogComponent implements OnInit {
   public nameFormGroup: FormGroup;
-  public nameFormControl = new FormControl('', [Validators.required]);
 
   constructor(
     private formBuilder: FormBuilder,

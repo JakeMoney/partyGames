@@ -9,16 +9,18 @@ export class Api {
 
   private apiUrl: string;
 
-  constructor( private http: HttpClient ) {
-    this.apiUrl = 'some.url.here';
+  constructor(
+    private http: HttpClient) {
+    this.apiUrl = 'https://www.backend.server.here';
   }
 
   public getPassCode() {
-    // const url = this.apiUrl + '/passCode/';
-    // return this.http.get(url).subscribe((value) => {
-    //   console.log(value);
-    // });
-    return Math.random().toString(36).substr(2, 5);
+    const url = this.apiUrl + '/passCode/';
+    return this.http.get(url).subscribe((value) => {
+      console.log(value);
+    });
+
+    // return Math.random().toString(36).substr(2, 5);
   }
 
   public createRoom(gameType: string, passCode: string): Observable<IRoom> {

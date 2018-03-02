@@ -15,6 +15,8 @@ import { WaitingRoomComponent } from './waiting-room/waiting-room.component';
 import { CreateRoomDialogComponent } from './dialogs/create-room-dialog/create-room-dialog.component';
 import { JoinRoomDialogComponent } from './dialogs/join-room-dialog/join-room-dialog.component';
 
+import './rxjs-operators';
+
 @NgModule({
   declarations: [
     AppComponent,

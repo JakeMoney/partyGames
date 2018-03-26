@@ -14,7 +14,7 @@ import { JoinRoomComponent } from './join-room/join-room.component';
 import { WaitingRoomComponent } from './waiting-room/waiting-room.component';
 import { GameSelectComponent } from './game-select/game-select.component';
 
-import './rxjs-operators';
+//import './rxjs-operators';
 
 @NgModule({
   declarations: [

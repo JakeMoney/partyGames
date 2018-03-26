@@ -1,1 +1,133 @@
-/* You can add global styles to this file, and also import other style files */
+@import "sass/universal.scss";
+@import "sass/mixins.scss";
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  app-root {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.view {
+  background-attachment: fixed;
+  background-size: cover;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+  overflow: hidden;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .btn {
+    width: 80%;
+    max-width: 380px;
+    height: 55px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    margin: 16px 0;
+    border: none;
+    outline: none;
+    text-decoration: none;
+
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-attachment: fixed;
+      background-size: cover;
+
+      -webkit-filter: blur(60px) brightness(2.5);// saturate(2);
+      filter: blur(60px) brightness(2.5);// saturate(2);
+    }
+
+    &:after {
+      content: attr(text);
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      height: 100%;
+      color: #fff;
+      font-size: 26px;
+      font-weight: 300;
+      background-color: rgba(225, 225, 225, 0.3);
+    
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    &:active:after {
+      background-color: rgba(225, 225, 225, 0.85);
+    }
+  }
+}
+
+.home-view {
+  @include bg-blue;
+
+  .btn:before {
+    content: '';
+    @include bg-blue;
+  }
+}
+
+.room-view {
+  @include bg-purple;
+
+  .btn:before {
+    content: '';
+    @include bg-purple;
+  }
+}
+
+.view-1 {
+  background-position: left;
+  .btn:before {
+    background-position: left;
+  }
+}
+
+.view-2 {
+  background-position: center;
+  .btn:before {
+    background-position: center;
+  }
+}
+
+.view-3 {
+  background-position: right;
+  .btn:before {
+    background-position: right;
+  }
+}

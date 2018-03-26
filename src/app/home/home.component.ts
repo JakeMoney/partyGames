@@ -17,12 +17,5 @@ export class HomeComponent implements OnInit {
     private api: Api) { }
 
   ngOnInit() { }
-
-  public createRoom() {
-    
-  }
-
-  public joinRoom() {
-
-  }
+  
 }

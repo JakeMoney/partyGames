@@ -9,7 +9,6 @@ export class JoinRoomComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }

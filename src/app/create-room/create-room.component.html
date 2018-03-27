@@ -1,17 +1,20 @@
 <div class="view home-view view-2">
 
-    <h1>Create a Room</h1>
+  <h1>Create a Room</h1>
 
-    <!-- TODO: Create into a form for submit -->
-    <div class="input-wrapper">
-        <input class="ipt" text="Room Name" required />
-        <input class="ipt" text="4 Letter Room Code" required />
-        <input class="ipt" text="Your Name" required />
-    </div>
-  
-    <div class="btn-wrapper">
-      <a class="btn" text="Create Room" href="/Create"></a>
-      <a class="btn" text="Cancel" href="/"></a>
-    </div>
-  
+  <!-- TODO: Create into a form for submit -->
+  <div class="input-wrapper">
+    <label for="roomName" class="ipt-label">Room Name</label>
+    <input id="roomName" class="ipt" type="text">
+    <label for="roomCode" class="ipt-label">4 Letter Room Code</label>
+    <input id="roomCode" class="ipt" type="text">
+    <label for="yourName" class="ipt-label">Your Name</label>
+    <input id="yourName" class="ipt" type="text">
   </div>
+
+  <div class="btn-wrapper">
+    <a class="btn" text="Create Room" href="/Party"></a>
+    <a class="btn warn" text="Cancel" href="/"></a>
+  </div>
+
+</div>

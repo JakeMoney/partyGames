@@ -9,7 +9,6 @@ export class CreateRoomComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }

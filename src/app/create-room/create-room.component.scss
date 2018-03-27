@@ -2,10 +2,13 @@
 
 h1 {
     @include main-header();
+    flex: .5;
 }
 
 .input-wrapper {
     @include content-wrapper();
+    flex: 2;
+    justify-content: center;
 }
 
 .btn-wrapper {

@@ -5,15 +5,15 @@
   <!-- TODO: Create into a form for submit -->
   <div class="input-wrapper">
     <label for="roomName" class="ipt-label">Room Name</label>
-    <input id="roomName" class="ipt" type="text">
+    <input id="roomName" class="ipt" type="text" [(ngModel)]="roomName">
     <label for="roomCode" class="ipt-label">4 Letter Room Code</label>
     <input id="roomCode" class="ipt" type="text">
     <label for="yourName" class="ipt-label">Your Name</label>
-    <input id="yourName" class="ipt" type="text">
+    <input id="yourName" class="ipt" type="text" [(ngModel)]="playerName">
   </div>
 
   <div class="btn-wrapper">
-    <a class="btn" text="Create Room" href="/Party"></a>
+    <a class="btn" text="Create Room" (click)="createRoom($event)" ></a>
     <a class="btn warn" text="Cancel" href="/"></a>
   </div>
 

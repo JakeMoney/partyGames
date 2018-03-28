@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { HomeService } from './home.service';
-import { Api } from '../api';
 import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
@@ -13,8 +12,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private homeService: HomeService,
-    private api: Api) { }
+    private homeService: HomeService) { }
 
   ngOnInit() { }
   

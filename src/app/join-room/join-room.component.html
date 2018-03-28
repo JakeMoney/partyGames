@@ -1,0 +1,18 @@
+<div class="view home-view view-2">
+
+    <h1>Join a Room</h1>
+
+    <!-- TODO: Create into a form for submit -->
+    <div class="input-wrapper">
+        <label for="roomCode" class="ipt-label">4 Letter Room Code</label>
+        <input id="roomCode" class="ipt" type="text" [(ngModel)]="roomCode">
+        <label for="yourName" class="ipt-label">Your Name</label>
+        <input id="yourName" class="ipt" type="text" [(ngModel)]="playerName">
+    </div>
+
+    <div class="btn-wrapper">
+        <a class="btn" text="Join Room" (click)="joinRoom($event)"></a>
+        <a class="btn warn" text="Cancel" href="/"></a>
+    </div>
+
+</div>

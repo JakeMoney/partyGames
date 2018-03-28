@@ -103,13 +103,9 @@ body {
     padding: 10px 20px;
     box-sizing: border-box;
     color: #fff;
-    font-size: 25px;
+    font-size: 25px !important;
+    font-weight: 100 !important;
     text-align: center;
-
-    &:before {
-      content: attr(text);
-      position: absolute;
-    }
   }
 }
 

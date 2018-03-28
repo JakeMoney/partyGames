@@ -1,6 +1,8 @@
+import { IPlayer } from "./player";
+
 export interface IRoom {
-  id: string;
-  hostId: string;
-  gameType: string;
-  passCode: string;
+  code: string;
+  name: string;
+  creator: number;
+  players: Array<IPlayer>;
 }

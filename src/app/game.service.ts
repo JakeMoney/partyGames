@@ -11,7 +11,7 @@ export class GameService {
 
   constructor(private http: Http) { }
 
-  createRoom(room: any, socket: any) {
+  public createRoom(room: any, socket: any) {
     socket.emit('room.create', room);
   }
 

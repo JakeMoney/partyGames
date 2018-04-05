@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 
-import { GameService } from './game.service';
+import { RoomService } from './room.service';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CreateRoomComponent } from './create-room/create-room.component';
@@ -32,7 +32,7 @@ import { GameSelectComponent } from './game-select/game-select.component';
     BrowserAnimationsModule,
     FormsModule
   ],
-  providers: [GameService],
+  providers: [RoomService],
   bootstrap: [AppComponent],
   entryComponents: []
 })

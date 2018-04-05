@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GameService } from '../game.service';
+import { RoomService } from '../room.service';
 
 @Component({
   selector: 'app-join-room',
@@ -11,7 +11,7 @@ export class JoinRoomComponent implements OnInit {
   private roomCode: string;
   public playerName: string;
 
-  constructor(private gameService: GameService) { }
+  constructor(private roomService: RoomService) { }
 
   ngOnInit(): void { }
 
@@ -20,7 +20,7 @@ export class JoinRoomComponent implements OnInit {
       roomCode: this.roomCode,
       playerName: this.playerName
     }
-    this.gameService.joinRoom(data);
+    this.roomService.joinRoom(data);
   }
 
 }

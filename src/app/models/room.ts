@@ -1,8 +1,8 @@
-import { IPlayer } from "./player";
+import { Player } from "./player";
 
-export interface IRoom {
+export class Room {
   code: string;
   name: string;
   creator: string;
-  players: Array<IPlayer>;
+  players: Array<Player>;
 }

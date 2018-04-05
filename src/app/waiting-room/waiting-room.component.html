@@ -1,0 +1,27 @@
+<div class="view home-view view-3">
+
+    <h2 class="lg-white-title">CS 428 For the Boys</h2>
+  
+    <span id="playerCount">{{roomService.room.players.length}} Players in the Party</span>
+    <div class="players-wrapper">
+        <div class="scroll-container">
+            <div *ngFor="let player of roomService.room.players">
+                {{player.name}}
+                <span id="partyLeader" *ngIf="player.id === roomService.room.creator">&nbsp;(Party leader)</span>
+            </div>
+            <!-- <div *ngFor="let car of cars">{{car}}</div> -->
+        </div>
+    </div>
+
+    <!-- should only visible by party leader -->
+    <span *ngIf="roomService.player.id === roomService.room.creator" class="lg-white-text">Press Start when all players have joined</span>
+    <!-- should only visible by non party leader members -->
+    <span *ngIf="roomService.player.id !== roomService.room.creator" class="lg-white-text">Waiting for party leader to start...</span>
+  
+    <div class="btn-wrapper">
+        <!-- should only visible by party leader -->
+        <a class="btn" text="Start" (click)="startRoom($event)" ></a>
+        <a class="btn warn" text="Leave Party" href="/"></a>
+    </div>
+  
+  </div>

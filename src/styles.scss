@@ -92,20 +92,21 @@ body {
   }
 
   .ipt {
-    border: none;
-    border-radius: 10px;
-    background: rgba(0, 0, 0, 0.2);
-    outline: none;
     text-decoration: none;
     height: 55px;
-    width: 80%;
-    max-width: 380px;
     padding: 10px 20px;
-    box-sizing: border-box;
-    color: #fff;
-    font-size: 25px !important;
-    font-weight: 100 !important;
     text-align: center;
+    @include dark-background;
+  }
+
+  .players-wrapper {
+    @include dark-background;
+    width: 80%; 
+    max-width: 380px;
+    font-weight: 300 !important;
+    min-height: 115px;
+    max-height: 325px;
+    flex: 1;
   }
 }
 

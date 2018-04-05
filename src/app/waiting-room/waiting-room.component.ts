@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RoomService } from '../room.service';
 
 @Component({
   selector: 'app-waiting-room',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WaitingRoomComponent implements OnInit {
 
-  constructor() { }
+  public cars: Array<string> = ["Saab", "Volvo", "BMW", "Volvo", "BMW", "Volvo", "BMW", "Volvo", "BMW", "Volvo", "BMW", "Volvo", "BMW"];
 
-  ngOnInit() {
+  constructor(private roomService: RoomService) { }
+
+  ngOnInit(): void { 
+    console.log(this.roomService.getPlayer());
+  }
+
+  startRoom(e) {
+    this.roomService.startRoom();
   }
 
 }

@@ -1,0 +1,13 @@
+<div class="view game-view view-1">
+
+    <div class="sm-button-wrapper">
+        <a class="btn" text="Leave party" href="/"></a>
+    </div>
+
+    <h1>Select a Game</h1>
+
+    <div class="game-wrapper">
+        <a *ngFor="let game of gameService.games" class="btn btn-lg" text="[game.name]" [href]="game.url"></a>
+    </div>
+
+</div>

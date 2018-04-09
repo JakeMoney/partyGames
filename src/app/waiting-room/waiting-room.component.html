@@ -1,15 +1,16 @@
-<div class="view home-view view-3">
+<div class="view room-view view-3">
 
-    <h2 class="lg-white-title">CS 428 For the Boys</h2>
+    <h2 class="lg-white-title">{{roomService.room.name}}</h2>
   
-    <span id="playerCount">{{roomService.room.players.length}} Players in the Party</span>
+    <span id="playerCount">
+        {{roomService.room.players.length}} Player<span *ngIf="roomService.room.players.length > 1">s</span> in the Party
+    </span>
     <div class="players-wrapper">
         <div class="scroll-container">
             <div *ngFor="let player of roomService.room.players">
                 {{player.name}}
                 <span id="partyLeader" *ngIf="player.id === roomService.room.creator">&nbsp;(Party leader)</span>
             </div>
-            <!-- <div *ngFor="let car of cars">{{car}}</div> -->
         </div>
     </div>
 
@@ -20,7 +21,7 @@
   
     <div class="btn-wrapper">
         <!-- should only visible by party leader -->
-        <a class="btn" text="Start" (click)="startRoom($event)" ></a>
+        <a *ngIf="roomService.player.id === roomService.room.creator" class="btn" text="Start" href="/Games" (click)="startRoom($event)" ></a>
         <a class="btn warn" text="Leave Party" href="/"></a>
     </div>
   

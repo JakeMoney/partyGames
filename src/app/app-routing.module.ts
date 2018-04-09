@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { CreateRoomComponent } from './create-room/create-room.component';
 import { JoinRoomComponent } from './join-room/join-room.component';
 import { WaitingRoomComponent } from './waiting-room/waiting-room.component';
+import { GameSelectComponent } from './game-select/game-select.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
     path: 'Party',
     component: WaitingRoomComponent,
   },
+  {
+    path: 'Games',
+    component: GameSelectComponent,
+  }
 ];
 
 @NgModule({

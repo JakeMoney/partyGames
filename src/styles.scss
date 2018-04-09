@@ -115,7 +115,7 @@ body {
   color: #b44145 !important;
 }
 
-.home-view {
+.room-view {
   @include bg-blue;
 
   .btn:before {
@@ -124,7 +124,7 @@ body {
   }
 }
 
-.room-view {
+.game-view {
   @include bg-purple;
 
   .btn:before {

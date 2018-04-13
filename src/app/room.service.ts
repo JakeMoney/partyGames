@@ -6,6 +6,10 @@ import { Player } from './models/player';
 //"socket.io": "^2.0.4",
 import * as io from 'socket.io-client';
 
+enum RoomState {
+  Home = 'Home', Create = 'Create', Join = 'Join', Wait = 'Wait', Started = 'Started'
+}
+
 @Injectable()
 export class RoomService {
 
@@ -17,6 +21,8 @@ export class RoomService {
 
   private player: Player;
   private room: Room;
+
+  private roomState: RoomState = RoomState.Home;
 
   constructor(private http: Http) {
 
@@ -45,8 +51,7 @@ export class RoomService {
       player.id = room.creator;
       sessionStorage.setItem(this.playerKey, JSON.stringify(player));
 
-      // redirect to party room
-      window.location.href = '/Party';
+      this.roomState = RoomState.Wait;
     })
 
     this.socket.on('room.joined', (room) => {
@@ -60,8 +65,7 @@ export class RoomService {
       this.player.id = this.getPlayerId();
       sessionStorage.setItem(this.playerKey, JSON.stringify(this.player));
 
-      // redirect to party room
-      window.location.href = '/Party';
+      this.roomState = RoomState.Wait;
     })
 
     this.socket.on('room.started', () => {
@@ -71,6 +75,18 @@ export class RoomService {
     this.socket.on('error.created', (error) => {
       console.error(error);
     })
+  }
+
+  public create() {
+    this.roomState = RoomState.Create;
+  }
+  
+  public join() {
+    this.roomState = RoomState.Join;
+  }
+
+  public cancel() {
+    this.roomState = RoomState.Home;
   }
 
   public createRoom(data: any) {

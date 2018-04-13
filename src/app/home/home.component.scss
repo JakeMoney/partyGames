@@ -1,9 +1,0 @@
-@import "./../../sass/mixins.scss";
-
-h1 {
-  @include main-header();
-}
-
-.btn-wrapper {
-  @include content-wrapper();
-}

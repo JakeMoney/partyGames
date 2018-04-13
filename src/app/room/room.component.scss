@@ -1,5 +1,30 @@
 @import "./../../sass/mixins.scss";
 
+h1 {
+  @include main-header();
+}
+
+.btn-wrapper {
+  @include content-wrapper();
+}
+// wait
+.btn-wrapper {
+    @include content-wrapper();
+    justify-content: center;
+}
+
+// create
+h1 {
+    @include main-header();
+    flex: .5;
+}
+
+.input-wrapper {
+    @include content-wrapper();
+    flex: 2;
+    justify-content: center;
+}
+
 .players-wrapper {
     background: rgba(0, 0, 0, 0.4);
     padding: 16px;
@@ -33,11 +58,6 @@
             background: #555; 
         }
     }
-}
-
-.btn-wrapper {
-    @include content-wrapper();
-    justify-content: center;
 }
 
 @mixin nice-text {

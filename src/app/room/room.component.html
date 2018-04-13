@@ -1,0 +1,61 @@
+<div *ngIf="roomService.roomState === 'Home'" class="view room-view view-1">
+    <h1>PARTY GAMES</h1>
+    <div class="btn-wrapper">
+      <a class="btn" text="Create a Room" (click)="init($event, 'create')"></a>
+      <a class="btn" text="Join a Room" (click)="init($event, 'join')"></a>
+    </div>
+</div>
+
+<div *ngIf="roomService.roomState === 'Create'" class="view room-view view-2">
+    <h1>Create a Room</h1>
+    <!-- TODO: Make a form for submit -->
+    <div class="input-wrapper">
+      <label for="roomName" class="ipt-label">Room Name</label>
+      <input id="roomName" class="ipt" type="text" [(ngModel)]="roomName">
+      <label for="yourName" class="ipt-label">Your Name</label>
+      <input id="yourName" class="ipt" type="text" [(ngModel)]="playerName">
+    </div>
+    <div class="btn-wrapper">
+      <a class="btn" text="Create Room" (click)="createRoom($event)" ></a>
+      <a class="btn warn" text="Cancel" (click)="cancel($event)"></a>
+    </div>
+</div>
+
+<div *ngIf="roomService.roomState === 'Join'" class="view room-view view-2">
+    <h1>Join a Room</h1>
+    <!-- TODO: Make a form for submit -->
+    <div class="input-wrapper">
+        <label for="roomCode" class="ipt-label">4 Letter Room Code</label>
+        <input id="roomCode" class="ipt" type="text" [(ngModel)]="roomCode">
+        <label for="yourName" class="ipt-label">Your Name</label>
+        <input id="yourName" class="ipt" type="text" [(ngModel)]="playerName">
+    </div>
+    <div class="btn-wrapper">
+        <a class="btn" text="Join Room" (click)="joinRoom($event)"></a>
+        <a class="btn warn" text="Cancel" (click)="cancel($event)"></a>
+    </div>
+</div>
+
+<div *ngIf="roomService.roomState === 'Wait'" class="view room-view view-3">
+    <h2 class="lg-white-title">{{roomService.room.name}}</h2>
+    <span id="playerCount">
+        {{roomService.room.players.length}} Player<span *ngIf="roomService.room.players.length > 1">s</span> in the Party
+    </span>
+    <div class="players-wrapper">
+        <div class="scroll-container">
+            <div *ngFor="let player of roomService.room.players">
+                {{player.name}}
+                <span id="partyLeader" *ngIf="player.id === roomService.room.creator">&nbsp;(Party leader)</span>
+            </div>
+        </div>
+    </div>
+    <!-- should only visible by party leader -->
+    <span *ngIf="roomService.player.id === roomService.room.creator" class="lg-white-text">Press Start when all players have joined</span>
+    <!-- should only visible by non party leader members -->
+    <span *ngIf="roomService.player.id !== roomService.room.creator" class="lg-white-text">Waiting for party leader to start...</span>
+    <div class="btn-wrapper">
+        <!-- should only visible by party leader -->
+        <a *ngIf="roomService.player.id === roomService.room.creator" class="btn" text="Start" (click)="startRoom($event)" ></a>
+        <a class="btn warn" text="Leave Party" (click)="cancel($event)"></a>
+    </div>
+</div>

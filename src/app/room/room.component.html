@@ -1,0 +1,87 @@
+<div *ngIf="gameService.gameState === 'Home'" class="view room-view view-1">
+    <h1>PARTY GAMES</h1>
+    <div class="btn-wrapper">
+      <a class="btn" text="Create a Room" (click)="init($event, 'create')"></a>
+      <a class="btn" text="Join a Room" (click)="init($event, 'join')"></a>
+    </div>
+</div>
+
+<div *ngIf="gameService.gameState === 'Create'" class="view room-view view-2">
+    <h1>Create a Room</h1>
+    <!-- TODO: Make a form for submit -->
+    <div class="input-wrapper">
+      <label for="roomName" class="ipt-label">Room Name</label>
+      <input id="roomName" class="ipt" type="text" [(ngModel)]="roomName">
+      <label for="yourName" class="ipt-label">Your Name</label>
+      <input id="yourName" class="ipt" type="text" [(ngModel)]="playerName">
+    </div>
+    <div class="btn-wrapper">
+      <a class="btn" text="Create Room" (click)="createRoom($event)" ></a>
+      <a class="btn warn" text="Cancel" (click)="cancel($event)"></a>
+    </div>
+</div>
+
+<div *ngIf="gameService.gameState === 'Join'" class="view room-view view-2">
+    <h1>Join a Room</h1>
+    <!-- TODO: Make a form for submit -->
+    <div class="input-wrapper">
+        <label for="roomCode" class="ipt-label">4 Letter Room Code</label>
+        <input id="roomCode" class="ipt" type="text" [(ngModel)]="roomCode">
+        <label for="yourName" class="ipt-label">Your Name</label>
+        <input id="yourName" class="ipt" type="text" [(ngModel)]="playerName">
+    </div>
+    <div class="btn-wrapper">
+        <a class="btn" text="Join Room" (click)="joinRoom($event)"></a>
+        <a class="btn warn" text="Cancel" (click)="cancel($event)"></a>
+    </div>
+</div>
+
+<div *ngIf="gameService.gameState === 'Wait'" class="view room-view view-3">
+    <h2 class="lg-white-title">{{gameService.room.name}}</h2>
+    <span id="playerCount">
+        {{gameService.room.players.length}} Player<span *ngIf="gameService.room.players.length > 1">s</span> in the Party
+    </span>
+    <div class="players-wrapper">
+        <div class="scroll-container">
+            <div *ngFor="let player of gameService.room.players">
+                {{player.name}}
+                <span id="partyLeader" *ngIf="player.id === gameService.room.creator">&nbsp;(Party leader)</span>
+            </div>
+        </div>
+    </div>
+    <!-- should only visible by party leader -->
+    <span *ngIf="gameService.player.id === gameService.room.creator" class="lg-white-text">Press Start when all players have joined</span>
+    <!-- should only visible by non party leader members -->
+    <span *ngIf="gameService.player.id !== gameService.room.creator" class="lg-white-text">Waiting for party leader to start...</span>
+    <div class="btn-wrapper">
+        <!-- should only visible by party leader -->
+        <a *ngIf="gameService.player.id === gameService.room.creator" class="btn" text="Start" (click)="startRoom($event)" ></a>
+        <a class="btn warn" text="Leave Party" (click)="cancel($event)"></a>
+    </div>
+</div>
+
+<div *ngIf="gameService.gameState === 'Choose'" class="view game-view view-1">
+    <a class="btn btn-small warn" text="Leave Party" (click)="cancel($event)"></a>
+    <h2 *ngIf="gameService.player.id === gameService.room.creator" class="lg-white-title">Select a Game</h2>
+    <div *ngIf="gameService.player.id === gameService.room.creator" class="games-wrapper">
+        <a class="btn btn-large" text="Fishbowl" (click)="chooseGame($event)"></a>
+    </div>
+    <h2 *ngIf="gameService.player.id !== gameService.room.creator" class="lg-white-title">Waiting for party leader to choose the game...</h2>
+</div>
+
+<div *ngIf="gameService.gameState === 'Team'" class="view game-view view-2">
+    <a class="btn btn-small warn" text="Leave Party" (click)="cancel($event)"></a>
+    <h2 class="lg-white-title" style="text-transform: capitalize;">{{gameService.game.type}}</h2>
+    <div *ngIf="gameService.getPlayerTeam() === 0" class="team-wrapper team-0">
+        <a *ngFor="let player of gameService.game.teams[0].players" class="btn-blue">{{player.name}}</a>
+    </div>
+    <div *ngIf="gameService.getPlayerTeam() === 1" class="team-wrapper team-1">
+        <a *ngFor="let player of gameService.game.teams[1].players" class="btn-red">{{player.name}}</a>
+    </div>
+    <h2 *ngIf="gameService.player.id !== gameService.room.creator" class="lg-white-title">Waiting for party leader to begin the game...</h2>
+    <a *ngIf="gameService.player.id === gameService.room.creator" class="btn" text="Begin" (click)="beginGame($event)"></a>
+</div>
+
+<div *ngIf="gameService.gameState === 'Began'" class="view game-view view-3">
+    Game Began
+</div>

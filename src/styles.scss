@@ -1,1 +1,186 @@
-/* You can add global styles to this file, and also import other style files */
+@import "sass/universal.scss";
+@import "sass/mixins.scss";
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  app-root {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.view {
+  background-attachment: fixed;
+  background-size: cover;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+  overflow: hidden;
+  padding: 10px;
+  box-sizing: border-box;
+
+  .btn {
+    @include button();
+
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-attachment: fixed;
+      background-size: cover;
+
+      -webkit-filter: blur(60px) brightness(2.8);
+      filter: blur(60px) brightness(2.8);
+    }
+
+    &:after {
+      content: attr(text);
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      height: 100%;
+      color: #fff;
+      font-size: 26px;
+      font-weight: 300;
+      background-color: rgba(225, 225, 225, 0.3);
+    
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    &:active:after {
+      background-color: rgba(225, 225, 225, 0.85);
+    }
+  }
+
+  .btn-large {
+    height: 100px;
+
+    &:after{
+      color: $purple;
+      background-color: transparent;
+    }
+  }
+
+  .btn-small {
+    max-height: 30px;
+    width: 175px;
+
+    &:after {
+      font-size: 20px;
+    }
+  }
+
+  .ipt-label {
+    padding: 10px 0 4px 0;
+    font-size: 24px;
+    color: #fff;
+    font-weight: 300;
+  }
+
+  .ipt {
+    text-decoration: none;
+    height: 55px;
+    padding: 10px 20px;
+    text-align: center;
+    @include dark-background;
+  }
+
+  .players-wrapper {
+    @include dark-background;
+    width: 80%; 
+    max-width: 380px;
+    font-weight: 300 !important;
+    min-height: 115px;
+    max-height: 325px;
+    flex: 1;
+  }
+
+  .games-wrapper {
+    @include content-wrapper();
+    flex: 1;
+  }
+
+  .team-wrapper {
+    @include content-wrapper();
+    flex: 1;
+
+    .btn-blue {
+      @include button();
+      color: #fff;
+      justify-content: center;
+      background-color: $bright-blue;
+      font-size: 24px;
+    }
+    .btn-red {
+      @include button();
+      color: #fff;
+      justify-content: center;
+      background-color: $red;
+      font-size: 24px;
+    }
+  }
+}
+
+.warn:after {
+  background-color: rgba(225, 225, 225, 0.5) !important;
+  color: #b44145 !important;
+}
+
+.room-view {
+  @include bg-blue;
+
+  .btn:before {
+    content: '';
+    @include bg-blue;
+  }
+}
+
+.game-view {
+  @include bg-purple;
+
+  .btn:before {
+    content: '';
+    @include bg-purple;
+  }
+}
+
+.view-1 {
+  background-position: left;
+  .btn:before {
+    background-position: left;
+  }
+}
+
+.view-2 {
+  background-position: center;
+  .btn:before {
+    background-position: center;
+  }
+}
+
+.view-3 {
+  background-position: right;
+  .btn:before {
+    background-position: right;
+  }
+}

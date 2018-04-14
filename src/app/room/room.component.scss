@@ -1,0 +1,105 @@
+@import "./../../sass/mixins.scss";
+
+h1 {
+  @include main-header();
+}
+
+.btn-wrapper {
+  @include content-wrapper();
+}
+// wait
+.btn-wrapper {
+    @include content-wrapper();
+    justify-content: center;
+}
+
+// create
+h1 {
+    @include main-header();
+    flex: .5;
+}
+
+.input-wrapper {
+    @include content-wrapper();
+    flex: 2;
+    justify-content: center;
+}
+
+.players-wrapper {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 16px;
+
+    .scroll-container {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        height: 100%;
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+            border-radius: 10px;
+            margin: 15px;
+            position: absolute;
+            right: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;  
+            border-radius: 10px;
+            margin: 15px;
+            position: absolute;
+            right: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555; 
+        }
+    }
+}
+
+@mixin nice-text {
+    font-weight: 200;
+    color: #fff;
+    width: 80%;
+    margin: 8px 0;
+    text-align: center;
+    font-size: 26px;
+}
+
+.lg-white-title {
+    @include nice-text();
+    font-size: 28px;
+    font-weight: 300;
+    margin: 20px 0;
+}
+
+#playerCount {
+    @include nice-text();
+    font-size: 22px;
+}
+
+.lg-white-text {
+    @include nice-text();
+    width: 70%;
+    margin: 20px 0;
+}
+
+#partyLeader {
+    font-size: 23px;
+    font-weight: 200;
+}
+
+// Smaller phones
+@media only screen and (max-width: 340px) {
+    .lg-white-title {
+        margin: 10px 0;
+    }
+
+    .lg-white-text {
+        font-size: 21px;
+        margin: 5px 0;
+    }
+}

@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
-import { RoomService } from '../room.service';
+import { GameService } from '../game.service';
 
 @Component({
   selector: 'app-room',
@@ -14,17 +14,17 @@ export class RoomComponent implements OnInit {
   public playerName: string;
 
   constructor(private router: Router,
-              private roomService: RoomService) { }
+              private gameService: GameService) { }
 
   ngOnInit() { }
 
   init(e, state) {
     switch(state) {
       case 'create':
-        this.roomService.create();
+        this.gameService.create();
         break;
       case 'join':
-        this.roomService.join()
+        this.gameService.join()
         break;
       default:
         break;
@@ -36,7 +36,7 @@ export class RoomComponent implements OnInit {
       roomName: this.roomName,
       playerName: this.playerName
     }
-    this.roomService.createRoom(data);
+    this.gameService.createRoom(data);
   }
 
   joinRoom(e) {
@@ -44,14 +44,34 @@ export class RoomComponent implements OnInit {
       roomCode: this.roomCode,
       playerName: this.playerName
     }
-    this.roomService.joinRoom(data);
+    this.gameService.joinRoom(data);
   }
 
   startRoom(e) {
-    this.roomService.startRoom();
+    this.gameService.startRoom();
   }
 
   cancel(e) {
-    this.roomService.cancel();
+    this.gameService.cancel();
+    this.roomCode = "";
+    this.roomName = "";
+    this.playerName = "";
   }
+
+  // Game endpoint calls
+  chooseGame(e) {
+    let data = {
+      gameType: "fishbowl"
+    }
+    this.gameService.chooseGame(data);
+  }
+
+  cycleTeam(e) {
+    this.gameService.cycleTeam();
+  }
+
+  beginGame(e) {
+    this.gameService.beginGame();
+  }
+
 }

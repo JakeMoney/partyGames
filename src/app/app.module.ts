@@ -7,16 +7,14 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 
-import { RoomService } from './room.service';
+import { GameService } from './game.service';
 import { AppComponent } from './app.component';
 import { RoomComponent } from './room/room.component';
-import { GameComponent } from './game/game.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RoomComponent,
-    GameComponent
+    RoomComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +24,7 @@ import { GameComponent } from './game/game.component';
     BrowserAnimationsModule,
     FormsModule
   ],
-  providers: [RoomService],
+  providers: [GameService],
   bootstrap: [AppComponent],
   entryComponents: []
 })

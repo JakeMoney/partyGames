@@ -34,19 +34,7 @@ body {
   box-sizing: border-box;
 
   .btn {
-    width: 80%;
-    max-width: 380px;
-    height: 55px;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    border-radius: 10px;
-    position: relative;
-    overflow: hidden;
-    margin: 16px 0;
-    border: none;
-    outline: none;
-    text-decoration: none;
+    @include button();
 
     &:before {
       position: absolute;
@@ -84,6 +72,24 @@ body {
     }
   }
 
+  .btn-large {
+    height: 100px;
+
+    &:after{
+      color: $purple;
+      background-color: transparent;
+    }
+  }
+
+  .btn-small {
+    max-height: 30px;
+    width: 175px;
+
+    &:after {
+      font-size: 20px;
+    }
+  }
+
   .ipt-label {
     padding: 10px 0 4px 0;
     font-size: 24px;
@@ -107,6 +113,31 @@ body {
     min-height: 115px;
     max-height: 325px;
     flex: 1;
+  }
+
+  .games-wrapper {
+    @include content-wrapper();
+    flex: 1;
+  }
+
+  .team-wrapper {
+    @include content-wrapper();
+    flex: 1;
+
+    .btn-blue {
+      @include button();
+      color: #fff;
+      justify-content: center;
+      background-color: $bright-blue;
+      font-size: 24px;
+    }
+    .btn-red {
+      @include button();
+      color: #fff;
+      justify-content: center;
+      background-color: $red;
+      font-size: 24px;
+    }
   }
 }
 

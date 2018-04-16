@@ -53,15 +53,15 @@ export class RoomComponent implements OnInit {
 
   cancel(e) {
     this.gameService.cancel();
-    this.roomCode = "";
-    this.roomName = "";
-    this.playerName = "";
+    this.roomCode = ''
+    this.roomName = '';
+    this.playerName = '';
   }
 
   // Game endpoint calls
   chooseGame(e) {
     let data = {
-      gameType: "fishbowl"
+      gameType: 'fishbowl'
     }
     this.gameService.chooseGame(data);
   }
